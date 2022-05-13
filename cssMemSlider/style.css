@@ -115,7 +115,7 @@ a {
 
 #active label:hover {
     background: aqua;
-    border-color: #777 !important;
+    border-color: grey !important;
 }
 
 #switch1:checked~#active label:nth-child(1),
