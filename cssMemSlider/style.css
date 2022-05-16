@@ -1,143 +1,242 @@
-body {
-    background-color: #333;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
-.all {
-    margin-top: 4rem;
-}
-
-#slider {
-    text-align: center;
-}
-
-#slider {
-    margin: 0 auto;
-}
-
-#slides article {
-    width: 20%;
-    float: left;
-}
-
-.image {
-    width: 500%;
-}
-
-.mem-img {
-    border-radius: 1rem;
-}
-
-.caption {
-    color: white;
-    width: 25%;
-    text-align: left;
-}
-
-@media (max-width: 767px) {
-    .caption {
-        color: white;
-        width: 100%;
-    }
-
-    .sw {
-        margin-bottom: 1rem;
-    }
-}
-
-#overflow {
-    width: 30rem;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-@media (max-width: 767px) {
-    #overflow {
-        width: 18rem;
-    }
-}
-
-article img {
+body,
+html {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: 19rem;
+    height: 100%;
 }
 
-@media (max-width: 767px) {
-    article img {
-        height: 13rem;
-    }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslategray;
 }
 
-label,
-a {
-    cursor: pointer;
+.slider {
+    display: grid;
+    grid-template-columns: calc(80% - 1rem) 20%;
+    grid-template-rows: auto 10vh;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    margin: 0 auto;
+    width: 35vw;
+    max-width: 100rem;
+    overflow: hidden;
 }
 
-.all input {
+.slider__slides-wrapper {
+    grid-row: 1 / 2;
+    display: flex;
+    width: 140vw;
+    height: 50vh;
+    transition: transform 0.4s ease 0.2s;
+}
+
+
+.slider__text-wrapper {
+    display: flex;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    align-self: start;
+    width: calc(35vw * 4);
+    color: white;
+    transform: translateX(calc(35vw * -4));
+    transition: transform 0.4s ease-in;
+}
+
+.slider__switch-wrapper {
+    display: flex;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    justify-content: flex-end;
+    align-self: start;
+    width: 100%;
+    z-index: 2;
+}
+
+input {
     display: none;
 }
 
-#switch1:checked~#slides .image {
-    margin-left: 0;
+.slide {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    background-color: grey;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
-#switch2:checked~#slides .image {
-    margin-left: -100%;
+.mem-1 {
+    background-image: url("img/per.png");
 }
 
-#switch3:checked~#slides .image {
-    margin-left: -200%;
+.mem-2 {
+    background-image: url("img/world.jpg");
 }
 
-#switch4:checked~#slides .image {
-    margin-left: -300%;
+.mem-3 {
+    background-image: url("img/js.jpg");
 }
 
-#active label {
-    border-radius: 1rem;
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    border: solid #bbb 0.01rem;
+.mem-4 {
+    background-image: url("img/table.jpg");
 }
 
-@media (max-width: 1500px) {
-    #active {
-        margin: -2rem 0 0 24rem;
-        text-align: center;
-    }
+#slide1:checked~.slider__slides-wrapper {
+    transform: translateX(0);
+    transition: transform 0.4s ease-in;
 }
 
-@media (max-width: 767px) {
-    #active {
-        margin: -17% 0 0 0;
-    }
+#slide2:checked~.slider__slides-wrapper {
+    transform: translateX(-25%);
+    transition: transform 0.4s ease-in;
 }
 
-#active label:hover {
-    background: aqua;
-    border-color: grey !important;
+#slide3:checked~.slider__slides-wrapper {
+    transform: translateX(-50%);
+    transition: transform 0.4s ease-in;
 }
 
-#switch1:checked~#active label:nth-child(1),
-#switch2:checked~#active label:nth-child(2),
-#switch3:checked~#active label:nth-child(3),
-#switch4:checked~#active label:nth-child(4) {
-    background: aqua;
+#slide4:checked~.slider__slides-wrapper {
+    transform: translateX(-75%);
+    transition: transform 0.4s ease-in;
 }
 
-#slides .image {
-    transition: all 0.5s ease-out;
+.slider__text-wrapper .text {
+    width: 100%;
+    font-size: 1.2rem;
+    transition: transform 0.4s ease-in;
+}
+
+#slide1:checked~.slider__text-wrapper {
+    transform: translateX(0);
+    transition: transform 0.4s ease-in;
+}
+
+#slide2:checked~.slider__text-wrapper {
+    transform: translateX(-25%);
+    transition: transform 0.4s ease-in;
+}
+
+#slide3:checked~.slider__text-wrapper {
+    transform: translateX(-50%);
+    transition: transform 0.4s ease-in;
+}
+
+#slide4:checked~.slider__text-wrapper {
+    transform: translateX(-75%);
+    transition: transform 0.4s ease-in;
+}
+
+.switch {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.switch:hover .dot {
+    background-color: white;
+    transition: 0.4s ease-in;
 }
 
 .dot {
+    background-color: aqua;
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: #749cec;
-    transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in;
 }
 
-.brd {
-    margin: 0.5rem 0;
-    cursor: pointer;
+#slide1:checked~.slider__switch-wrapper>.switch-1>.dot {
+    background-color: transparent;
+    border: 2px solid aqua;
+    transition: border 0.4s ease-in;
+}
+
+#slide1:checked~.slider__switch-wrapper>.switch-1:hover .dot {
+    border-color: white;
+    transition: border 0.4s ease-in;
+}
+
+#slide2:checked~.slider__switch-wrapper>.switch-2>.dot {
+    background-color: transparent;
+    border: 2px solid aqua;
+    transition: border 0.4s ease-in;
+}
+
+#slide2:checked~.slider__switch-wrapper>.switch-2:hover .dot {
+    border-color: white;
+    transition: border 0.4s ease-in;
+}
+
+#slide3:checked~.slider__switch-wrapper>.switch-3>.dot {
+    background-color: transparent;
+    border: 2px solid aqua;
+    transition: border 0.4s ease-in;
+}
+
+#slide3:checked~.slider__switch-wrapper>.switch-3:hover .dot {
+    border-color: white;
+    transition: border 0.4s ease-in;
+}
+
+#slide4:checked~.slider__switch-wrapper>.switch-4>span {
+    background-color: transparent;
+    border: 2px solid aqua;
+    transition: border 0.4s ease-in;
+}
+
+#slide4:checked~.slider__switch-wrapper>.switch-4:hover span {
+    border-color: white;
+    transition: border 0.4s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        width: 90vw;
+    }
+
+    .slider__slides-wrapper {
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slider__text-wrapper {
+        order: 1;
+    }
+
+    .slider__switch-wrapper {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .dot {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .text {
+        font-size: 1rem;
+    }
 }

@@ -5,56 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
     <title>css-Mem-Slider</title>
 </head>
 
 <body>
-    <div class="all">
-        <article id="slider">
-            <input checked type="radio" name="slider" id="switch1">
-            <input type="radio" name="slider" id="switch2">
-            <input type="radio" name="slider" id="switch3">
-            <input type="radio" name="slider" id="switch4">
-            <div id="slides">
-                <div id="overflow">
-                    <div class="image">
-                        <article><img src="img/per.png" class="mem-img">
-                            <h1 class="caption">Variables</h1>
-                        </article>
-                        <article><img src="img/world.jpg" class="mem-img">
-                            <h1 class="caption">Hunt</h1>
-                        </article>
-                        <article><img src="img/js.jpg" class="mem-img">
-                            <h1 class="caption">Js</h1>
-                        </article>
-                        <article><img src="img/table.jpg" class="mem-img">
-                            <h1 class="caption">Table</h1>
-                        </article>
-                    </div>
-                </div>
-            </div>
-            <div id="controls">
-                <label for="switch1"></label>
-                <label for="switch2"></label>
-                <label for="switch3"></label>
-                <label for="switch4"></label>
-            </div>
-            <div id="active">
-                <label for="switch1" class="brd">
-                    <span class="sw"> </span>
-                </label>
-                <label for="switch2" class="brd">
-                    <span class="sw"> </span>
-                </label>
-                <label for="switch3" class="brd">
-                    <span class="sw"> </span>
-                </label>
-                <label for="switch4" class="brd">
-                    <span class="sw"> </span>
-                </label>
-            </div>
-        </article>
+    <div class="slider">
+        <input checked type="radio" name="switch" id="slide1">
+        <input type="radio" name="switch" id="slide2">
+        <input type="radio" name="switch" id="slide3">
+        <input type="radio" name="switch" id="slide4">
+        <div class="slider__slides-wrapper">
+            <div class="slide mem-1"></div>
+            <div class="slide mem-2"></div>
+            <div class="slide mem-3"></div>
+            <div class="slide mem-4"></div>
+        </div>
+        <div class="slider__text-wrapper">
+            <div class="text">Variables</div>
+            <div class="text">Hunt</div>
+            <div class="text">Javascript</div>
+            <div class="text">Table</div>
+        </div>
+        <div class="slider__switch-wrapper">
+            <label class="switch switch-1" for="slide1">
+                <span class="dot"></span>
+            </label>
+            <label class="switch switch-2" for="slide2">
+                <span class="dot"></span>
+            </label>
+            <label class="switch switch-3" for="slide3">
+                <span class="dot"></span>
+            </label>
+            <label class="switch switch-4" for="slide4">
+                <span class="dot"></span>
+            </label>
+        </div>
     </div>
 </body>
 
